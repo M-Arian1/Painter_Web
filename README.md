@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+# مستندات تمرین دستگرمی دوم
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+این پروژه یک برنامه نقاشی ساده است که با استفاده از React JS و قابلیت Drag and Drop توسعه داده شده است.
 
-## Available Scripts
+## ویژگی‌های اصلی
 
-In the project directory, you can run:
+### 1. هدر (Header)
 
-### `npm start`
+* امکان وارد کردن و تغییر عنوان نقاشی
+* دکمه‌ی Import برای بارگذاری نقاشی از فایل JSON
+* دکمه‌ی Export برای ذخیره نقاشی به صورت فایل JSON
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 2. نوار ابزار جانبی (Sidebar)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* ابزارهایی برای انتخاب اشکال مختلف شامل: دایره، مربع و مثلث
 
-### `npm test`
+### 3. بوم نقاشی (Canvas)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* محیط مرکزی برای طراحی
+* قابلیت کشیدن اشکال از نوار ابزار و رها کردن آن‌ها روی بوم
+* امکان جابجایی اشکال موجود
+* پیاده‌سازی Drag and Drop برای تعامل راحت‌تر
 
-### `npm run build`
+### 4. شمارنده اشکال
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* نمایش تعداد اشکال رسم‌شده به تفکیک نوع در بخش پایین
+* بروزرسانی خودکار با هر تغییر در اشکال
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 5. مدیریت اشکال
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* امکان حذف شکل با دوبار کلیک
+* جابجایی اشکال در بوم با Drag کردن
 
-### `npm run eject`
+## قابلیت‌های Import/Export
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Export
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* ذخیره نقاشی به صورت فایل JSON شامل عنوان و موقعیت اشکال
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Import
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+* بارگذاری فایل JSON ذخیره‌شده و بازیابی نقاشی
 
-## Learn More
+## نصب و راه‌اندازی
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### پیش‌نیازها
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* Node.js
+* npm
 
-### Code Splitting
+### مراحل نصب
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+cd painter
+npm install
+npm start
+```
 
-### Analyzing the Bundle Size
+پروژه پس از اجرا در آدرس `http://localhost:3000` در دسترس خواهد بود.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## وابستگی ها
 
-### Making a Progressive Web App
+* React JS برای رابط کاربری
+* React DnD برای Drag and Drop
+* HTML5 Backend برای DnD
+* CSS3 برای استایل‌دهی
+* JSON برای ذخیره اطلاعات
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## ساختار پروژه
 
-### Advanced Configuration
+```
+src/
+├── App.js
+├── App.css       
+├── index.js       
+└── public/        
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## ویژگی‌های فنی
 
-### Deployment
+### سیستم Drag and Drop
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* تشخیص بین کشیدن اشکال جدید و جابجایی اشکال موجود
+* موقعیت‌یابی با توجه به مختصات موس
+* ارائه بازخورد بصری در هنگام کشیدن اشکال
 
-### `npm run build` fails to minify
+### مدیریت وضعیت (State Management)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* استفاده از React Hooks
+* اختصاص شناسه یکتا برای هر شکل
+* بروزرسانی آنلاین داده‌ها در رابط کاربری
+
+## استفاده هوش مصنوعی
+
+در این پروژه برای فایل App.css از مدل های مختلفی مانند gpt و claude استفاده شده. از مزایای این کار میتوان به افزایش زیبایی بصری و کاهش هزینه زمانی اشاره کرد. اما سختی کار در توضیح دقیق خواسته‌ها و نیازها به مدل‌های هوش مصنوعی است که ممکن است نیاز به چندین بار بازبینی و اصلاح داشته باشد.
+## پروژه‌های مرتبط
+
+برای آشنایی بیشتر می‌توانید پروژه‌های زیر را بررسی کنید:
+
+* [JS Paint](https://jspaint.app/)
+* [Z-Editor](https://z-editor.github.io/)
