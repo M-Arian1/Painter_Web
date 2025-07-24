@@ -120,7 +120,7 @@ const Canvas = ({ shapes, onDrop, onMoveShape, onDoubleClickShape }) => {
   );
 };
 
-// Login Component
+// Login
 const LoginForm = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -227,7 +227,7 @@ const LoginForm = ({ onLogin }) => {
   );
 };
 
-// Main App
+
 const App = () => {
   const [currentUser, setCurrentUser] = useState(null);
   const [title, setTitle] = useState('Painting Title');
@@ -236,7 +236,7 @@ const App = () => {
   const [saveStatus, setSaveStatus] = useState('');
   const fileInputRef = useRef(null);
 
-  // Load user's painting on login
+  // Load saved painting when logging in
   const handleLogin = async (userId, username) => {
     setCurrentUser({ id: userId, username });
     
@@ -260,7 +260,7 @@ const App = () => {
     }
   };
 
-  // Save painting to server
+  // Server Save
   const handleSave = async () => {
     if (!currentUser) return;
 
@@ -293,7 +293,7 @@ const App = () => {
     setTimeout(() => setSaveStatus(''), 3000);
   };
 
-  // Logout function
+  // Loging Out
   const handleLogout = () => {
     setCurrentUser(null);
     setTitle('Painting Title');
@@ -371,7 +371,7 @@ const App = () => {
     }
   };
 
-  // Auto-save every 30 seconds if user is logged in
+  // Auto-saving for every 60 seconds
   useEffect(() => {
     if (!currentUser) return;
 
@@ -379,12 +379,12 @@ const App = () => {
       if (shapes.length > 0) {
         handleSave();
       }
-    }, 30000); // 30 seconds
+    }, 60000);
 
     return () => clearInterval(autoSaveInterval);
   }, [currentUser, shapes, title]);
 
-  // Show login form if not logged in
+  // Login Form
   if (!currentUser) {
     return <LoginForm onLogin={handleLogin} />;
   }
@@ -460,18 +460,15 @@ const App = () => {
         <div className="bottom-counter">
           <div className="counter-item">
             <div className="counter-shape circle"></div>
-            <span>{getShapeCount('circle')} Circles</span>
+            <span>{getShapeCount('circle')}</span>
           </div>
           <div className="counter-item">
             <div className="counter-shape square"></div>
-            <span>{getShapeCount('square')} Squares</span>
+            <span>{getShapeCount('square')}</span>
           </div>
           <div className="counter-item">
             <div className="counter-shape triangle"></div>
-            <span>{getShapeCount('triangle')} Triangles</span>
-          </div>
-          <div className="total-shapes">
-            Total: {shapes.length} shapes
+            <span>{getShapeCount('triangle')}</span>
           </div>
         </div>
       </div>

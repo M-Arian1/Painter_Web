@@ -21,3 +21,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+# --- Painter Backend (Java/Maven) ---
+/painter-backend/target/
+/painter-backend/.idea/
+/painter-backend/.classpath
+/painter-backend/.project
+/painter-backend/.settings/
+/painter-backend/*.iml
